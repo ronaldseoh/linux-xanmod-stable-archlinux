@@ -83,7 +83,7 @@ for _patch in ${_patches[@]}; do
     source+=("${_patch}::https://git.archlinux.org/svntogit/packages.git/plain/trunk/${_patch}?h=packages/linux&id=${_commit}")
 done
 
-sha256sums=('dcdf99e43e98330d925016985bfbc7b83c66d367b714b2de0cbbfcbf83d8ca43'
+sha256sums=('04f07b54f0d40adfab02ee6cbd2a942c96728d87c1ef9e120d0cb9ba3fe067b4'
             'SKIP'
             '63915b0ec5a955f8e56910d491bbf23e6162859a99291bc0c5ab6eeb85c0f75e'
             '03bb8b234a67b877a34a8212936ba69d8700c54c7877686cbd9742a536c87134')
