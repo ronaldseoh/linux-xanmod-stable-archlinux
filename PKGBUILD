@@ -51,7 +51,7 @@ _makenconfig=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
-pkgbase=linux-xanmod-stable-ivybridge_celeron
+pkgbase=linux-xanmod-stable
 _major=5.11
 pkgver=${_major}.19
 _branch=5.x
