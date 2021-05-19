@@ -83,11 +83,15 @@ for _patch in ${_patches[@]}; do
     source+=("${_patch}::https://git.archlinux.org/svntogit/packages.git/plain/trunk/${_patch}?h=packages/linux&id=${_commit}")
 done
 
+# Temporary bcache patch
+source+=(bcache-avoid-oversized-read-request.patch)
+
 sha256sums=('7d0df6f2bf2384d68d0bd8e1fe3e071d64364dcdc6002e7b5c87c92d48fac366'
             'SKIP'
             '550c0791ec823628b94dd9220942510faef33f2e0912a3cc0d0833f3f16561a1'
             '51742dee57cd15bece152d6527f48af87cb7930f0f6a356d5282f778e7c35b39'
-            '52fc0fcd806f34e774e36570b2a739dbdf337f7ff679b1c1139bee54d03301eb')
+            '52fc0fcd806f34e774e36570b2a739dbdf337f7ff679b1c1139bee54d03301eb'
+            'SKIP')
 
 export KBUILD_BUILD_HOST=${KBUILD_BUILD_HOST:-archlinux}
 export KBUILD_BUILD_USER=${KBUILD_BUILD_USER:-makepkg}
@@ -120,10 +124,6 @@ prepare() {
     msg2 "Applying patch $src..."
     patch -Np1 < "../$src"
   done
-  
-  # Temporary bcache patch
-  # Discussion: https://lore.kernel.org/linux-bcache/20210518110009.11413-1-colyli@suse.de/T/#u
-  patch -Np1 -i ../bcache-avoid-oversized-read-request.patch
 
   # CONFIG_STACK_VALIDATION gives better stack traces. Also is enabled in all official kernel packages by Archlinux team
   scripts/config --enable CONFIG_STACK_VALIDATION
