@@ -120,6 +120,10 @@ prepare() {
     msg2 "Applying patch $src..."
     patch -Np1 < "../$src"
   done
+  
+  # Temporary bcache patch
+  # Discussion: https://lore.kernel.org/linux-bcache/20210518110009.11413-1-colyli@suse.de/T/#u
+  patch -Np1 -i ../bcache-avoid-oversized-read-request.patch
 
   # CONFIG_STACK_VALIDATION gives better stack traces. Also is enabled in all official kernel packages by Archlinux team
   scripts/config --enable CONFIG_STACK_VALIDATION
