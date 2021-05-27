@@ -53,7 +53,7 @@ _makenconfig=
 
 pkgbase=linux-xanmod-stable
 _major=5.12
-pkgver=${_major}.5
+pkgver=${_major}.7
 _branch=5.x
 xanmod=1
 pkgrel=${xanmod}
@@ -88,8 +88,8 @@ source+=(bcache-avoid-oversized-read-request.patch)
 
 sha256sums=('7d0df6f2bf2384d68d0bd8e1fe3e071d64364dcdc6002e7b5c87c92d48fac366'
             'SKIP'
-            'dd84cb043350cc29a029ac86442e50e7a60a55623ddf8b3450fbd078eeb295a9'
-            '51742dee57cd15bece152d6527f48af87cb7930f0f6a356d5282f778e7c35b39'
+            '907e4d0c92ecd840e32d4c26e745bfb94ae3260d8351fe545101bb7da70e6a50'
+            '1ac18cad2578df4a70f9346f7c6fccbb62f042a0ee0594817fdef9f2704904ee'
             '52fc0fcd806f34e774e36570b2a739dbdf337f7ff679b1c1139bee54d03301eb'
             'SKIP')
 
