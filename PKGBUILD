@@ -36,7 +36,7 @@ fi
 
 ## Choose between GCC and CLANG config (default is GCC)
 if [ -z ${_compiler+x} ]; then
-  _compiler=gcc
+  _compiler=clang
 fi
 
 # Compile ONLY used modules to VASTLY reduce the number of modules built
