@@ -171,10 +171,10 @@ prepare() {
   sh ${srcdir}/choose-gcc-optimization.sh $_microarchitecture
 
   # This is intended for the people that want to build this package with their own config
-  # Put the file "myconfig" at the package folder (this will take preference) or "${XDG_CONFIG_HOME}/linux-xanmod/myconfig"
+  # Put the file "myconfig" at the package folder (this will take preference) or "${XDG_CONFIG_HOME}/linux-xanmod-stable/myconfig"
   # If we detect partial file with scripts/config commands, we execute as a script
   # If not, it's a full config, will be replaced
-  for _myconfig in "${SRCDEST}/myconfig" "${HOME}/.config/linux-xanmod/myconfig" "${XDG_CONFIG_HOME}/linux-xanmod/myconfig" ; do
+  for _myconfig in "${SRCDEST}/myconfig" "${HOME}/.config/linux-xanmod-stable/myconfig" "${XDG_CONFIG_HOME}/linux-xanmod-stable/myconfig" ; do
     if [ -f "${_myconfig}" ] && [ "$(wc -l <"${_myconfig}")" -gt "0" ]; then
       if grep -q 'scripts/config' "${_myconfig}"; then
         # myconfig is a partial file. Executing as a script
