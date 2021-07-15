@@ -92,11 +92,27 @@ for _patch in ${_patches[@]}; do
     source+=("${_patch}::https://git.archlinux.org/svntogit/packages.git/plain/trunk/${_patch}?h=packages/linux&id=${_commit}")
 done
 
+# Additional CK patches
+source+=('0001-MultiQueue-Skiplist-Scheduler-v0.210.patch'
+         '0002-Unmask-ondemand-and-conservative-and-allow-schedutil.patch'
+         '0003-Make-preemptible-kernel-default.patch'
+         '0012-Make-threaded-IRQs-optionally-the-default-which-can-.patch'
+         '0013-Reinstate-default-Hz-of-100-in-combination-with-MuQS.patch'
+         '0014-Swap-sucks.patch'
+         '0015-Make-nohz_full-not-be-picked-up-as-a-default-config-.patch')
+
 sha256sums=('7d0df6f2bf2384d68d0bd8e1fe3e071d64364dcdc6002e7b5c87c92d48fac366'
             'SKIP'
             '75feddee0da8bade45ea3af6ecef54e744b8c21263f453f08f0bf6e2c3ed8f2b'
             '1ac18cad2578df4a70f9346f7c6fccbb62f042a0ee0594817fdef9f2704904ee'
-            '52fc0fcd806f34e774e36570b2a739dbdf337f7ff679b1c1139bee54d03301eb')
+            '52fc0fcd806f34e774e36570b2a739dbdf337f7ff679b1c1139bee54d03301eb'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP')
 
 export KBUILD_BUILD_HOST=${KBUILD_BUILD_HOST:-archlinux}
 export KBUILD_BUILD_USER=${KBUILD_BUILD_USER:-makepkg}
