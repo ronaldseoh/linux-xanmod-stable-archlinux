@@ -148,11 +148,12 @@ prepare() {
   scripts/config --set-str CONFIG_ANDROID_BINDER_DEVICES "binder,hwbinder,vndbinder"
 
   # MuQSS timer frequency
+  scripts/config --enable CONFIG_SCHED_MUQSS
   scripts/config --enable CONFIG_NO_HZ
   scripts/config --enable CONFIG_NO_HZ_IDLE
   scripts/config --disable CONFIG_HZ_500
   scripts/config --enable CONFIG_HZ_100
-  scripts/config --set-int CONFIG_HZ 100
+  scripts/config --set-val CONFIG_HZ 100
 
   # Enable IKCONFIG following Arch's philosophy
   scripts/config --enable CONFIG_IKCONFIG \
