@@ -92,11 +92,15 @@ for _patch in ${_patches[@]}; do
     source+=("${_patch}::https://git.archlinux.org/svntogit/packages.git/plain/trunk/${_patch}?h=packages/linux&id=${_commit}")
 done
 
+# MuQSS
+source+=('0001-MultiQueue-Skiplist-Scheduler-v0.210.patch')
+
 sha256sums=('7d0df6f2bf2384d68d0bd8e1fe3e071d64364dcdc6002e7b5c87c92d48fac366'
             'SKIP'
             '5fc76a78824d1327dfaedc27baacd435b809f3ca65487e25c73f4ebb4aa5a50a'
             '1ac18cad2578df4a70f9346f7c6fccbb62f042a0ee0594817fdef9f2704904ee'
-            '52fc0fcd806f34e774e36570b2a739dbdf337f7ff679b1c1139bee54d03301eb')
+            '52fc0fcd806f34e774e36570b2a739dbdf337f7ff679b1c1139bee54d03301eb'
+            'SKIP')
 
 export KBUILD_BUILD_HOST=${KBUILD_BUILD_HOST:-archlinux}
 export KBUILD_BUILD_USER=${KBUILD_BUILD_USER:-makepkg}
@@ -142,6 +146,13 @@ prepare() {
   scripts/config --enable CONFIG_ANDROID_BINDER_IPC
   scripts/config --enable CONFIG_ANDROID_BINDERFS
   scripts/config --set-str CONFIG_ANDROID_BINDER_DEVICES "binder,hwbinder,vndbinder"
+
+  # MuQSS timer frequency
+  scripts/config --enable CONFIG_NO_HZ
+  scripts/config --enable CONFIG_NO_HZ_IDLE
+  scripts/config --disable CONFIG_HZ_500
+  scripts/config --enable CONFIG_HZ_100
+  scripts/config --set-int CONFIG_HZ 100
 
   # Enable IKCONFIG following Arch's philosophy
   scripts/config --enable CONFIG_IKCONFIG \
