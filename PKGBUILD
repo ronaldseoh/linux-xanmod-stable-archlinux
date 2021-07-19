@@ -148,6 +148,7 @@ prepare() {
   scripts/config --set-str CONFIG_ANDROID_BINDER_DEVICES "binder,hwbinder,vndbinder"
 
   # MuQSS timer frequency
+  msg2 "Enabling MuQSS"
   scripts/config --enable CONFIG_SCHED_MUQSS
   scripts/config --enable CONFIG_NO_HZ
   scripts/config --enable CONFIG_NO_HZ_IDLE
