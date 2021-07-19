@@ -11399,9 +11399,9 @@ index 62fbd09b5dc1..bddb43d327d8 100644
 +extern int sched_iso_cpu;
 +extern int sched_yield_type;
 +#endif
- #ifdef CONFIG_PRINTK
  static int ten_thousand = 10000;
- #endif
+ extern int hrtimer_granularity_us;
+ sextern int hrtimeout_min_us;
 @@ -184,7 +192,7 @@ static enum sysctl_writes_mode sysctl_writes_strict = SYSCTL_WRITES_STRICT;
  int sysctl_legacy_va_layout;
  #endif
@@ -11510,8 +11510,9 @@ index f5490222e134..7a61971cca74 100644
 +/* Limit min_delta to 100us */
 +#define MIN_DELTA_LIMIT		(NSEC_PER_SEC / 10000)
 +#else
+ int __read_mostly hrtimer_granularity_us = 100;
  /* Limit min_delta to a jiffie */
- #define MIN_DELTA_LIMIT		(NSEC_PER_SEC / HZ)
+ #define MIN_DELTA_LIMIT		(hrtimer_granularity_us * NSEC_PER_USEC)
 +#endif
  
  /**
