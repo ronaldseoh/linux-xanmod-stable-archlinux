@@ -60,7 +60,7 @@ pkgbase=linux-xanmod-stable
 _major=5.12
 pkgver=${_major}.18
 _branch=5.x
-xanmod=1
+xanmod=3
 pkgrel=${xanmod}
 pkgdesc='Linux Xanmod Stable'
 url="http://www.xanmod.org/"
@@ -97,7 +97,7 @@ source+=('0001-MultiQueue-Skiplist-Scheduler-v0.210.patch')
 
 sha256sums=('7d0df6f2bf2384d68d0bd8e1fe3e071d64364dcdc6002e7b5c87c92d48fac366'
             'SKIP'
-            '5fc76a78824d1327dfaedc27baacd435b809f3ca65487e25c73f4ebb4aa5a50a'
+            'e804ff7317c1a31d21310434de19d321550b108374fec93457e46646abe7e1db'
             '1ac18cad2578df4a70f9346f7c6fccbb62f042a0ee0594817fdef9f2704904ee'
             '52fc0fcd806f34e774e36570b2a739dbdf337f7ff679b1c1139bee54d03301eb'
             'SKIP')
